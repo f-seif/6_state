@@ -15,7 +15,7 @@ class App extends React.Component {
  componentDidMount() {
      setInterval(() => {
        this.setState((prevState) => ({
-         cnt: prevState.cnt + 1,
+         cnt: this.state.cnt + 1,
        }));
      },1000);
   }
