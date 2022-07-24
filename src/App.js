@@ -13,11 +13,18 @@ class App extends React.Component {
  };
  toggleShow=()=>this.setState({show: !this.state.show})
  componentDidMount() {
-    setInterval(() => {
+     setInterval(() => {
+       this.setState((prevState) => ({
+         cnt: prevState.cnt + 1,
+       }));
+     },1000);
+  }
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.show !== this.state.show) {
       this.setState((prevState) => ({
-        cnt: prevState.cnt + 1,
+        cnt: 0,
       }));
-    },1000);
+    }
   }
   render() {
     return (
